@@ -1,0 +1,63 @@
+body {
+    font-family: "Cambria","Georgia","Times New Roman",serif;
+}
+
+.md-content {
+    max-width: 800px;
+}
+.md-content__inner {
+    @media (width > 960px) { 
+        margin-left: 4.2rem !important;
+    }
+}
+
+.md-nav--primary,
+.md-nav--secondary {
+    font-size: .8rem;
+}
+
+article .translation_button {
+    font-size: 14px;
+}
+
+article > p,
+article > ul > li {
+    font-size: 0.9rem;
+    hyphens: auto;
+}
+
+article {
+    @media (width > 960px) { 
+        width: 600px !important;
+        line-height: 1.727055rem;
+        font-size: normal;
+        font-weight: 1.2793rem;
+    }
+}
+
+article a {
+    color: var(--md-primary-fg-color) !important;
+    text-decoration: underline;
+}
+
+article > h1 {
+    font-size: 46px !important;
+}
+
+article > h1 > strong,
+article > h2 > strong {
+    color: var(--md-primary-fg-color);
+}
+
+article > h1 > a {
+    text-decoration: none;
+}
+
+article > h2 > a {
+    text-decoration: none;
+}
+
+.mermaid {
+    display: flex;
+    justify-content: center;
+}

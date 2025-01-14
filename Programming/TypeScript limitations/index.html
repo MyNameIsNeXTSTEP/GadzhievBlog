@@ -1,0 +1,761 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../TypeScript%20limitations-rus/" rel="prev"/>
+<link href="../Testing/Testing/" rel="next"/>
+<link href="../../assets/logo1.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.49" name="generator"/>
+<title>TypeScript limitations - Next Step blog</title>
+<link href="../../assets/stylesheets/main.6f8fc17f.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="../../stylesheets/tags.css" rel="stylesheet"/>
+<link href="../../stylesheets/home-page.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="black" data-md-color-primary="black" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#typescript-limitations">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Next Step blog" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Next Step blog">
+<img alt="logo" src="../../assets/logo1.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Next Step blog
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              TypeScript limitations
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="black" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="black" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="black" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="white" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<!--
+  Copyright (c) 2016-2024 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+<!-- Determine classes -->
+<!-- Navigation -->
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<!-- Site title -->
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Next Step blog" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Next Step blog">
+<img alt="logo" src="../../assets/logo1.png"/>
+</a>
+    Next Step blog
+  </label>
+<!-- Repository information -->
+<!-- Navigation list -->
+<ul class="md-nav__list" data-md-scrollfix="">
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    HOME
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../NEWS/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    NEWS
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tags/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Tags
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
+<li class="md-nav__item md-nav__item--nested">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox">
+<!-- Toggle to expand nested items -->
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Books
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
+</label>
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            Books
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Books/Books/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Books
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Books/reviews/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Reviews
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
+</ul>
+</nav>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
+<li class="md-nav__item md-nav__item--nested">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox">
+<!-- Toggle to expand nested items -->
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Business
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
+</label>
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Business
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Business/What%20should%20an%20interview%20be%20like/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    What should an interview be like
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
+</ul>
+</nav>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
+<li class="md-nav__item md-nav__item--nested">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox">
+<!-- Toggle to expand nested items -->
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Management
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
+</label>
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            Management
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Management/Psychology%20VS%20Strong%20management/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Psychology VS Strong management
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
+</ul>
+</nav>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
+<li class="md-nav__item md-nav__item--nested">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox">
+<!-- Toggle to expand nested items -->
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    My projects
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
+</label>
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            My projects
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../My%20projects/Projects/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Projects
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
+</ul>
+</nav>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox">
+<!-- Toggle to expand nested items -->
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Programming
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
+</label>
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="true" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            Programming
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Coupling%20distance/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Coupling distance
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Decorators%20and%20composition/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Decorators and composition
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Knowledges%20in%20IT/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Knowledges in IT
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Mankind%20devided-human%20revolution/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Mankind devided - human revolution ?
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item md-nav__item--active">
+<!-- State toggle -->
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<!-- Hack: see partials/toc.html for more information -->
+<!-- Navigation link to table of contents -->
+<a class="md-nav__link md-nav__link--active" href="./">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    TypeScript limitations
+  </span>
+<!-- Navigation link status -->
+</a>
+<!-- Table of contents -->
+</li>
+<!-- Navigation item -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
+<li class="md-nav__item md-nav__item--nested">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_9_10" type="checkbox"/>
+<!-- Toggle to expand nested items -->
+<label class="md-nav__link" for="__nav_9_10" id="__nav_9_10_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Testing
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
+</label>
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_9_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_9_10">
+<span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Testing/Testing/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Testing
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
+</ul>
+</nav>
+<!-- Pruned navigation item -->
+</li>
+<!-- Currently active page -->
+</ul>
+</nav>
+<!-- Pruned navigation item -->
+</input></li>
+<!-- Currently active page -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<!-- Determine all nested items that are index pages -->
+<!-- Determine whether to render item as a section -->
+<!-- Nested navigation item -->
+<li class="md-nav__item md-nav__item--nested">
+<!-- Determine checked and indeterminate state -->
+<!-- Active checkbox expands items contained within nested section -->
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
+<!-- Toggle to expand nested items -->
+<label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Talks
+  </span>
+<!-- Navigation link status -->
+<span class="md-nav__icon md-icon"></span>
+</label>
+<!-- Toggle to expand nested items with link to index page -->
+<!-- Nested navigation -->
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+            Talks
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<!-- Nested navigation item -->
+<!-- Determine classes -->
+<!-- Determine active page for paginated views -->
+<!-- Navigation item with nested items -->
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Talks/blank/">
+<!-- Navigation link icon -->
+<!-- Navigation link title -->
+<span class="md-ellipsis">
+    Blank
+  </span>
+<!-- Navigation link status -->
+</a>
+</li>
+</ul>
+</nav>
+<!-- Pruned navigation item -->
+</li>
+<!-- Currently active page -->
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="typescript-limitations"><strong>TypeScript limitations</strong><a class="headerlink" href="#typescript-limitations" title="Permanent link">#</a></h1>
+<p><span class="translation_button"><a href="/Programming/TypeScript limitations-rus">Read in RUS (translated by ChatGPT)</a></span></p>
+<p><link href="/stylesheets/tags.css" rel="stylesheet" type="text/css"/></p>
+<div class="tags">
+<div class="tag">
+<a href="/tags#Programming">Programming</a>
+</div>
+<div class="tag">
+<a href="/tags#Typescript">Typescript</a>
+</div>
+<div class="tag">
+<a href="/tags#OOP">OOP</a>
+</div>
+</div>
+<p><em>17.02.2024</em> | <em>3-4 min. reading</em> </p>
+<p>Or how did i tried to code TS overloads not without the help of ChatGPT.
+<a href="https://chat.openai.com/share/7c7c7517-9e9d-4b5e-816c-0f6def3060b">ChatGPT messages share link</a></p>
+<p>As i have started studying such thing as overoads some time ago, i had an idea to implement it in some way in typescipt. My goal was to somehow introduce the easy to use overloading code in TS, without too much mannual handling as i saw in examples while preparing, researching the field.</p>
+<p><img src="/assets/just-try-to-realise-ts-meme.jpeg" width="100%"/></p>
+<p>The whole idea was to do something like the Java has, but for TS considering that TS "support" method overloading only on compile-time having the same name methods in class, but with different signatures and the one method so called <strong>entry point</strong> or <strong>entry method</strong>. Alse it means that programmer should take the typechecking in first place on:
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">TestClass</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">someMethod</span><span class="p">(</span><span class="nx">obj</span><span class="o">:</span><span class="w"> </span><span class="kt">TypeOne</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span><span class="w"> </span><span class="c1">// "overloaded" signature method</span>
+<span class="w">    </span><span class="nx">someMethod</span><span class="p">(</span><span class="nx">obj</span><span class="o">:</span><span class="w"> </span><span class="kt">TypeTwo</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span><span class="w"> </span><span class="c1">// "overloaded" signature method</span>
+<span class="w">    </span><span class="nx">someMethod</span><span class="p">(</span><span class="nx">obj</span><span class="o">:</span><span class="w"> </span><span class="kt">TypeOneOrTwo</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// the entry method</span>
+<span class="w">        </span><span class="c1">// need to check type entrance agaist our predicates</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">obj</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">_check_obj_type_matching_somehow_</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// do something </span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// may have another `else if` type matching check</span>
+<span class="w">            </span><span class="c1">// do something</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></p>
+<p>So the issue to make it work was to somehow be able to check that the provided object is one of the subtypes of a union type, and here i faced the core problem.
+In JS/TS there are <a href="https://tc39.es/ecma262/#sec-ecmascript-data-types-and-values">ECMAScript Data Types and Values</a> against which only we can check the actual type of something, for exmaple, using the <strong>typeof</strong> keyword.</p>
+<p>Buy the general purpuse is to check the type of incoming object in overloaded entrance method against the <strong>custom defined</strong> types. We can achive it by several approaches.
+First - is to mannualy check the presence of incoming object properties in type guard:
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">TypeOne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">isTypeOne</span><span class="p">(</span><span class="nx">obj</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">TypeOne</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="s1">'name'</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="s1">'id'</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">        </span><span class="ow">typeof</span><span class="w"> </span><span class="p">(</span><span class="nx">obj</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">TypeOne</span><span class="p">).</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">'string'</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">        </span><span class="ow">typeof</span><span class="w"> </span><span class="p">(</span><span class="nx">obj</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">TypeOne</span><span class="p">).</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">'number'</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>And that includes the worst scenarion of handling multiple fields of bigger object mathicng their types explicitly, but mannualy. It can be done in the form of automatic properties checking using <strong>Object.keys</strong> and map it through collected value types from the object signature - but it's really cumbersome.
+Also we may use the TS <strong>version 4.9</strong> <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html">satisfies</a> operator to check for type, but it's not working as it seemd to be:
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">TypeOne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">1</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">2</span><span class="p">};</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">obj</span><span class="w"> </span><span class="nx">satisfies</span><span class="w"> </span><span class="nx">TypeOne</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="c1">// 1 will be logged</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Because <em>"The new satisfies operator lets us validate that the type of an expression matches some type, without changing the resulting type of that expression."</em> (c).
+So it only will show you type error alert at compile-time in IDE, but the code still will be executed with no errors.</p>
+<p>After a while i realised that the appropriate solution could be something that only correspondse to this two points:</p>
+<ul>
+<li>Type checking must be dynamic, which means the ability to use generics and be able match every types by one action.</li>
+<li>If checking for properties presence and their data types it should automative</li>
+</ul>
+<p>Struggling and surfing the web, playing with code i did not manage to succeed to find any answers to fit my goals. The main factor was that using union types and checkng it's subtype against it neither in the form generic nor straight always gives the error:
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">TypeOne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">TypeTwo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">…</span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">TypeThree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">…</span>
+
+<span class="kr">type</span><span class="w"> </span><span class="nx">TMerged</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="nx">TypeOne</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="nx">TypeTwo</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="nx">TypeThree</span>
+
+<span class="c1">// Create a map object that registers each type check function</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">typeCheckMap</span><span class="o">:</span><span class="w"> </span><span class="kt">TypeCheckMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s1">'TypeOne'</span><span class="o">:</span><span class="w"> </span><span class="nx">isTypeOne</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">'TypeTwo'</span><span class="o">:</span><span class="w"> </span><span class="nx">isTypeTwo</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">// Add other types as necessary</span>
+<span class="p">};</span>
+
+<span class="c1">// Generic type guard function</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">isType</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">obj</span><span class="o">:</span><span class="w"> </span><span class="kt">TMerged</span><span class="p">,</span><span class="w"> </span><span class="nx">typeName</span><span class="o">:</span><span class="w"> </span><span class="kt">keyof</span><span class="w"> </span><span class="ow">typeof</span><span class="w"> </span><span class="nx">typeCheckMap</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">T</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">typeChecker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">typeCheckMap</span><span class="p">[</span><span class="nx">typeName</span><span class="p">];</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">typeChecker</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`Type check for '</span><span class="si">${</span><span class="nx">typeName</span><span class="si">}</span><span class="sb">' not found.`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">typeChecker</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// ERROR:</span>
+<span class="c1">// A type predicate's type must be assignable to its parameter's type.</span>
+<span class="c1">//  Type 'T' is not assignable to type 'TMerged'.</span>
+<span class="c1">//    Type 'T' is not assignable to type 'TypeTwo'</span>
+</code></pre></div></p>
+<p>The reason is the field types required in <strong>TypeOne</strong> but not existing in <strong>TypeTwo</strong> f.e. are conflicting. TypeScript cannot handle the fact that type predicate can be assignable and substitute to the super-type <strong>TMerged</strong>.</p>
+<p>And here's the ChatGPT. After several question i finally realised the problem - it's the TS disability to validate data types in run-time and also the core type-matching principle, it's <a href="https://www.typescriptlang.org/docs/handbook/type-compatibility.html">structural</a>, so no compatibility between inner types of the union type affects the matching directly between the super-time and it's subtype, i.e. type <strong>TMerged</strong> is not assignable to type <strong>TypeTwo</strong> f.e. due to their structural differencies. Even extanding one another the problem doesn't go away.</p>
+<p>So the conclusion is - the only way today to normally use the methid overloading in TS is still the semi-mannual checking of types.</p>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="../../javascripts/customScript.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</body>
+</html>
